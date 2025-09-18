@@ -1,5 +1,10 @@
 # 🚀 NUCLEO-F401RE LED Blink Project
 
+[![Build Status](https://github.com/ShreyuK/stm32-led-blink/actions/workflows/build.yml/badge.svg)](https://github.com/ShreyuK/stm32-led-blink/actions)
+[![Board: NUCLEO-F401RE](https://img.shields.io/badge/Board-NUCLEO--F401RE-00979D.svg)](https://www.st.com/en/evaluation-tools/nucleo-f401re.html)
+[![Platform](https://img.shields.io/badge/Platform-ARM%20Cortex--M4-brightgreen.svg)](https://www.arm.com/products/silicon-ip-cpu/cortex-m/cortex-m4)
+[![Made with C](https://img.shields.io/badge/Made%20with-C-blue.svg)](https://www.cprogramming.com/)
+
 ## 📖 Overview
 This project demonstrates a basic LED blinking application for the **STM32 NUCLEO-F401RE** development board. The code toggles the onboard LED (LD2) connected to GPIO pin PA5 with a **500ms delay** between each state change.
 
@@ -73,3 +78,4 @@ After flashing, the onboard green LED (LD2) should blink continuously with a per
 ---
 
 *Happy coding!* 😊
+
