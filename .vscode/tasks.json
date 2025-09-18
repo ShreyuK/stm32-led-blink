@@ -7,6 +7,13 @@
       "command": "make",
       "group": "build",
       "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Flash",
+      "type": "shell",
+      "command": "STM32_Programmer_CLI.exe",
+      "args": ["-c", "port=SWD", "-d", "build\\blink_basic.elf", "-rst"],
+      "group": "build"
     }
   ]
 }
