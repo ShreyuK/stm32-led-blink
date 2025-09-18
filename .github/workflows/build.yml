@@ -1,0 +1,44 @@
+name: STM32 Build and Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build:
+    name: Build STM32 Project
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive # Important if you use STM32Cube submodules
+
+    - name: Install ARM GCC Toolchain
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi
+
+    - name: Verify Toolchain Installation
+      run: |
+        arm-none-eabi-gcc --version
+        make --version
+
+    - name: Build Project
+      run: |
+        make all
+        echo "Build completed successfully!"
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: firmware-build
+        path: |
+          Build/*.elf
+          Build/*.bin
+          Build/*.hex
+        if-no-files-found: warn
